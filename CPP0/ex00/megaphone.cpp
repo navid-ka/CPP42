@@ -13,17 +13,16 @@
 
 int main(int argc, char **argv)
 {
-    size_t i = 0;
-    std::string megaphone;
     if (argc < 2){
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-    } else
-        for (i = 1; argv[i]; i++){
-            megaphone = argv[i];
-             for (size_t j = 0; j < megaphone.length(); j++){
-                 megaphone[j] = toupper(megaphone[j]);
+    } else{
+        for (size_t i = 1; argv[i]; i++){
+            std::string megaphone = argv[i];
+            for (size_t j = 0; j < megaphone.length(); j++){
+                megaphone[j] = toupper(megaphone[j]);
             }
             std::cout << megaphone;
         }
+    }
     std::cout << std::endl;
 }
