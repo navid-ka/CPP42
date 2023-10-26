@@ -9,3 +9,22 @@
 /**********************************************************************/
 
 #pragma once
+#include <iostream>
+
+class Contact {
+    private:
+        std::string firstName;
+        std::string lastName;
+        std::string nickname;
+        size_t      phoneNumber;
+        std::string darkSecret;
+        std::string contacts[];
+    public:
+        void addContact(std::string& newContact)
+        {
+            for (size_t i = 0; i == contacts[i].length(); i++)
+            {
+                contacts[i] = newContact;
+            }
+        }
+};

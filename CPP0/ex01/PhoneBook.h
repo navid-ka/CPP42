@@ -9,11 +9,12 @@
 /**********************************************************************/
 
 #pragma once
+#include "Contact.h"
 #include <iostream>
 
 class PhoneBook{
     private:
-        int a;
+        Contact contact;
     public:
         void print(int a){std::cout << a;}
         
