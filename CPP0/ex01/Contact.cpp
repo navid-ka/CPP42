@@ -8,32 +8,14 @@
 /*                              |___/                                 */
 /**********************************************************************/
 
-#pragma once
-#include "Contact.h"
 #include <iostream>
 
-/*class PhoneBook{
-    private:
-        Contact contact;
-    public:
-        Contact::addContact(std::string* buff);
-        Contact::~addContact(std::string* buff); 
-       void print(std::string buff){std::cout << buff;}
-};*/
+#include "Contact.h"
 
-class PhoneBook
-{
-private:
-    /* data */
-public:
-    PhoneBook(/* args */);
-    ~PhoneBook();
-};
-
-PhoneBook::PhoneBook(/* args */)
+Contact::Contact(/* args */)
 {
 }
 
-PhoneBook::~PhoneBook()
+Contact::~Contact()
 {
 }

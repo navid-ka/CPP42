@@ -11,20 +11,47 @@
 #pragma once
 #include <iostream>
 
-class Contact {
+/*class Contact {
     private:
         std::string firstName;
         std::string lastName;
         std::string nickname;
-        size_t      phoneNumber;
+        std::string phoneNumber;
         std::string darkSecret;
-        std::string contacts[];
+        std::string contacts[1000];
     public:
-        void addContact(std::string& newContact)
+       addContact(std::string& newContact)
         {
-            for (size_t i = 0; i == contacts[i].length(); i++)
+            for (size_t i = 0; i < contacts[i].length(); i++)
             {
                 contacts[i] = newContact;
+                /*newContact[0] = this->firstName;
+                newContact[1] = this->lastName;
+                newContact[2] = this->nickname;
+                newContact[3] = this->phoneNumber;
+                newContact[4] = this->darkSecret;*/
             }
         }
+        ~addContact(std::string& newContact)
+        {
+            return;
+        }
 };
+*/
+
+class Contact
+{
+private:
+    /* data */
+public:
+    Contact(/* args */);
+    ~Contact();
+};
+
+Contact::Contact(/* args */)
+{
+}
+
+Contact::~Contact()
+{
+}

@@ -15,7 +15,7 @@
 
 int main()
 {
-    std::cout << "Welcome to the 80s" << std::endl;
+    /*std::cout << "Welcome to the 80s" << std::endl;
     std::string option;
     //Switch maybe
     std::cout << "Enter an option" << std::endl;
@@ -33,8 +33,10 @@ int main()
         } else if (option == "EXIT"){
             return(0);
         }
-    }
-    //PhoneBook hola;
-    //hola.print(10);
+    }*/
+    std::string  buff[512];
+    PhoneBook hola;
+    std::cin >> buff;
+    hola.print(buff);
     return (0);
 }
