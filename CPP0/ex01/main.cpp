@@ -8,17 +8,20 @@
 /*                              |___/                                 */ 
 /**********************************************************************/
 
-#include "PhoneBook.h"
-
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 #include <iostream>
+#include <string>
 
 
 int main()
 {
-    /*std::cout << "Welcome to the 80s" << std::endl;
+    PhoneBook agenda;
+    Contact contact;
+    std::cout << "Welcome to the 80s" << std::endl;
     std::string option;
     //Switch maybe
-    std::cout << "Enter an option" << std::endl;
+   
     std::cout << "Please enter one of the following options: ADD, SEARCH, EXIT" << std::endl;
     std::cout << "ADD: save a new contact" << std::endl;
     std::cout << "SEARCH: display a specific contact" << std::endl;
@@ -26,17 +29,16 @@ int main()
     while (42)
     {
         std::cin >> option;
+        std::cout << "Enter an option" << std::endl;
         if (option == "ADD"){
-            std::cout << "Added contact" << std::endl;
+            agenda.add(option);
+            continue ;
         } else if (option == "SEARCH"){
             std::cout << "Search" << std::endl;
         } else if (option == "EXIT"){
             return(0);
         }
-    }*/
-    std::string  buff[512];
-    PhoneBook hola;
-    std::cin >> buff;
-    hola.print(buff);
+    }
+ 
     return (0);
 }

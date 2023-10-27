@@ -8,18 +8,16 @@
 /*                              |___/                                 */
 /**********************************************************************/
 
+#pragma once
 #include "Contact.hpp"
 #include <iostream>
 
-Contact::Contact()
+class PhoneBook
 {
-}
-
-Contact::~Contact()
-{
-}
-void Contact::setContactInfo(const std::string& first, const std::string& last) {
-        tContact contact;
-        contact.firstName = first;
-        contact.lastName = last;
-    }
+private:
+    Contact contact;
+public:
+    PhoneBook();
+    ~PhoneBook();
+    std::string add(std::string option);
+};

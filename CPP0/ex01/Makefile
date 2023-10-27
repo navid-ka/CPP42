@@ -1,8 +1,8 @@
 MAKEFLAGS += --no-print-directory
 NAME = phonebook
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-OBJECTS = phonebook.cpp
-HEADERS = PhoneBook.h
+OBJECTS = main.cpp Contact.cpp PhoneBook.cpp 
+HEADERS = PhoneBook.hpp Contact.hpp
 
 all: $(NAME)
 
