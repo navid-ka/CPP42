@@ -15,9 +15,16 @@
 class PhoneBook
 {
 private:
-    Contact contact;
+    Contact contactList[8];
+    bool    countContacts;
+    int     contactIndex;
+    int     contactCount;
 public:
     PhoneBook();
     ~PhoneBook();
-    std::string add(std::string option);
+    bool is_digits(const std::string &str);
+    void addContact(void);
+    void searchContact(void);
+    void printAllContacts(void);
+    void printContact(int contactIndex);
 };

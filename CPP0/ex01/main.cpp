@@ -13,32 +13,39 @@
 #include <iostream>
 #include <string>
 
+void printInfo(void)
+{
+    std::cout << O << "Please enter one of the following options: ADD, SEARCH, EXIT" << E << std::endl;
+    std::cout << T << "ADD: save a new contact" << E << std::endl;
+    std::cout << Y << "SEARCH: display a specific contact" << E << std::endl;
+    std::cout << R << "EXIT: The program quits and the contacts are lost forever!" << E << std::endl;
+}
 
 int main()
 {
     PhoneBook agenda;
     Contact contact;
-    std::cout << "Welcome to the 80s" << std::endl;
+
+    std::cout << G <<"Welcome to the 80s" << E << std::endl;
     std::string option;
-    //Switch maybe
-   
-    std::cout << "Please enter one of the following options: ADD, SEARCH, EXIT" << std::endl;
-    std::cout << "ADD: save a new contact" << std::endl;
-    std::cout << "SEARCH: display a specific contact" << std::endl;
-    std::cout << "EXIT: The program quits and the contacts are lost forever!" << std::endl;
-    while (42)
+    printInfo();
+    for (;;)
     {
-        std::cin >> option;
-        std::cout << "Enter an option" << std::endl;
+        std::cout << C << "Please enter an option: " << E;
+        std::getline(std::cin, option);
+        for (int i = 0; option[i]; i++){
+            option[i] = toupper(option[i]);
+        }
         if (option == "ADD"){
-            agenda.add(option);
-            continue ;
+            agenda.addContact();
         } else if (option == "SEARCH"){
-            std::cout << "Search" << std::endl;
+            agenda.searchContact();
         } else if (option == "EXIT"){
-            return(0);
+            std::cout << R << "Goodbye!" << E << std::endl;
+            return 0;
+        } else {
+            std::cout << R << "Please enter a valid option" << E << std::endl;
         }
     }
- 
     return (0);
 }

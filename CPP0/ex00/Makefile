@@ -10,7 +10,7 @@ $(NAME): $(OBJECTS) Makefile
 	@ gum style \
 		--foreground 212 --border-foreground 213 --border normal \
 		--align center --width 70 --margin "0 2" --padding "2 4" \
-		'Compilation completed, ./philosophers 10 300 200 300' | lolcat
+		'Compilation completed, ./megaphone "shhhhh... I think the students are asleep..."' | lolcat
 
 fclean: 
 	@gum spin --spinner meter --title "Cleaning..." -- make clean
