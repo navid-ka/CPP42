@@ -1,8 +1,8 @@
 MAKEFLAGS += --no-print-directory
-NAME = humans
+NAME = harl
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-OBJECTS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
-HEADERS = Weapon.hpp HumanA.hpp HumanB.hpp
+OBJECTS = main.cpp
+HEADERS =
 
 all: $(NAME)
 
@@ -11,7 +11,7 @@ $(NAME): $(OBJECTS) $(HEADERS) Makefile
 	@ gum style \
 		--foreground 212 --border-foreground 213 --border normal \
 		--align center --width 70 --margin "0 2" --padding "2 4" \
-		'Compilation completed, ./humans' | lolcat
+		'Compilation completed, ./harl' | lolcat
 
 fclean: 
 	@gum spin --spinner meter --title "Cleaning..." -- make clean
