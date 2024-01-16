@@ -1,8 +1,8 @@
 MAKEFLAGS += --no-print-directory
 NAME = harl
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-OBJECTS = main.cpp
-HEADERS =
+OBJECTS = main.cpp Harl.cpp
+HEADERS = Harl.hpp
 
 all: $(NAME)
 
