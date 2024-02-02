@@ -32,7 +32,10 @@ int main()
     for (;;)
     {
         std::cout << C << "Please enter an option: " << E;
-        std::getline(std::cin, option);
+        if (!std::getline(std::cin, option)){
+            std::cout << R << "Goodbye!" << E << std::endl;
+            return 0;
+        }
         for (int i = 0; option[i]; i++){
             option[i] = toupper(option[i]);
         }

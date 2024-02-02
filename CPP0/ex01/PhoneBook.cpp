@@ -41,7 +41,10 @@ void PhoneBook::addContact(void)
     while (!fieldCheck)
     {
         std::cout << T << "Please enter the first name: " << E;
-        std::getline(std::cin, field);
+        if(!std::getline(std::cin, field)){
+            std::cout << R << "Goodbye!" << E << std::endl;
+            exit(0);
+        }
         if (field.empty()){
             std::cout << R << "Field cannot be empty" << E << std::endl;
         }
@@ -55,7 +58,10 @@ void PhoneBook::addContact(void)
     while (!fieldCheck)
     {
         std::cout << T << "Please enter the last name: " << E;
-        std::getline(std::cin, field);
+        if(!std::getline(std::cin, field)){
+            std::cout << R << "Goodbye!" << E << std::endl;
+            exit(0);
+        }
         if (field.empty())
             std::cout << R << "Field cannot be empty" << E << std::endl;
         else {
@@ -68,7 +74,10 @@ void PhoneBook::addContact(void)
     while (!fieldCheck)
     {
         std::cout << T << "Please enter the nick name: " << E;
-        std::getline(std::cin, field);
+        if(!std::getline(std::cin, field)){
+            std::cout << R << "Goodbye!" << E << std::endl;
+            exit(0);
+        }
         if (field.empty())
             std::cout << R << "Field cannot be empty" << E << std::endl;
         else {
@@ -81,7 +90,10 @@ void PhoneBook::addContact(void)
     while (!fieldCheck)
     {
         std::cout << T << "Please enter the number: " << E;
-        std::getline(std::cin, field);
+        if(!std::getline(std::cin, field)){
+            std::cout << R << "Goodbye!" << E << std::endl;
+            exit(0);
+        }
         if (field.empty())
             std::cout << R << "Field cannot be empty" << E << std::endl;
         if (!is_digits(field))
@@ -96,7 +108,10 @@ void PhoneBook::addContact(void)
     while (!fieldCheck)
     {
         std::cout << Y << "Please enter your Darkest Secret: " << E;
-        std::getline(std::cin, field);
+        if(!std::getline(std::cin, field)){
+            std::cout << R << "Goodbye!" << E << std::endl;
+            exit(0);
+        }
         if (field.empty())
             std::cout << R << "Field cannot be empty" << E << std::endl;
         else {
@@ -164,7 +179,10 @@ void PhoneBook::searchContact(void)
         {
             int iPickedIndex = 0;
             std::cout << O << "Please provide a number from 1-8 to find the contact" << E << std::endl;
-            std::getline(std::cin, pickedIndex);
+            if (!std::getline(std::cin, pickedIndex)){
+                std::cout << R << "Goodbye!" << E << std::endl;
+                exit(0);
+            }
             for (size_t i = 0; i < pickedIndex.length() && pickedIndex[i] >= '0' && pickedIndex[i] <= '9'; i++) {
                 iPickedIndex = (iPickedIndex * 10) + (pickedIndex[i] - '0');
             }
