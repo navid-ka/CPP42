@@ -19,7 +19,7 @@ int main(int argc, char **argv)
         for (size_t i = 1; argv[i]; i++){
             std::string megaphone = argv[i];
             for (size_t j = 0; j < megaphone.length(); j++) {
-                megaphone[j] = toupper(megaphone[j]);
+                megaphone[j] = std::toupper(megaphone[j]);
             }
             std::cout << megaphone;
         }

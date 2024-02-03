@@ -1,8 +1,8 @@
 MAKEFLAGS += --no-print-directory
-NAME = accounting
+NAME = fixed
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-OBJECTS = src/tests.cpp src/Account.cpp 
-HEADERS = inc/Account.hpp
+OBJECTS = main.cpp Fixed.cpp
+HEADERS = Fixed.hpp
 
 all: $(NAME)
 
@@ -11,7 +11,7 @@ $(NAME): $(OBJECTS) $(HEADERS) Makefile
 	@ gum style \
 		--foreground 212 --border-foreground 213 --border normal \
 		--align center --width 70 --margin "0 2" --padding "2 4" \
-		'Compilation completed, ./accounting' | lolcat
+		'Compilation completed, ./fixed' | lolcat
 
 fclean: 
 	@gum spin --spinner meter --title "Cleaning..." -- make clean

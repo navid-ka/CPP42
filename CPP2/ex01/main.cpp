@@ -8,23 +8,21 @@
 /*                              |___/                                 */
 /**********************************************************************/
 
-#pragma once
-#include "Contact.hpp"
+#include "Fixed.hpp"
 #include <iostream>
+#include <string>
 
-class PhoneBook
+int main()
 {
-private:
-    Contact contactList[8];
-    bool    countContacts;
-    int     contactIndex;
-    int     contactCount;
-    void printContact(int contactIndex);
-    bool is_digits(const std::string &str);
-    void printAllContacts(void);
-public:
-    PhoneBook();
-    ~PhoneBook();
-    void addContact(void);
-    void searchContact(void);
-};
+    Fixed a;
+    Fixed b(a);
+    Fixed c;
+
+    c = b;
+
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
+
+    return 0;
+}

@@ -9,22 +9,17 @@
 /**********************************************************************/
 
 #pragma once
-#include "Contact.hpp"
-#include <iostream>
 
-class PhoneBook
+class Fixed
 {
-private:
-    Contact contactList[8];
-    bool    countContacts;
-    int     contactIndex;
-    int     contactCount;
-    void printContact(int contactIndex);
-    bool is_digits(const std::string &str);
-    void printAllContacts(void);
 public:
-    PhoneBook();
-    ~PhoneBook();
-    void addContact(void);
-    void searchContact(void);
+    Fixed();
+    Fixed(const Fixed &fixed);
+    ~Fixed();
+    Fixed &operator=(const Fixed &fixed);
+    int getRawBits(void) const;
+    void setRawBits(int const raw);
+private:
+    int _fixedPointValue;
+    static const int _fractionalBits = 8;
 };
