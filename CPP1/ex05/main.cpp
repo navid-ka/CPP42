@@ -17,7 +17,7 @@ int main(void)
 
     std::string error = "ERROR";
 
-    harl.complain("INFO");
+    harl.complain("WARNING");
 
     return 0;
 }

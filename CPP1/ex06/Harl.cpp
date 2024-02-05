@@ -33,17 +33,33 @@ void Harl::error( void ){
 }
 
 void Harl::complain(std::string level) {
-	std::string lookup[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	
+    std::string lookup[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    
     void (Harl::*f[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
-	for (int i = 0; i < 4; i++)
-	{
-		if (lookup[i] == level)
-		{
-			(this->*f[i])();
-			return ;
-		}
-	}
-	return ;
+    int i;
+    for (i = 0; i < 4; i++) {
+        if (level == lookup[i]) {
+            break;
+        }
+    }
+    if (i == 4) {
+        std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+        return;
+    }
+    std::cout << "[ " << level << " ]" << std::endl;
+    switch (i)
+    {
+        case 0:
+            (this->*f[0])();
+        case 1:
+            (this->*f[1])();
+        case 2:
+            (this->*f[2])();
+        case 3:
+            (this->*f[3])();
+        default:
+            break;
+    }
+    return;
 }

@@ -9,17 +9,24 @@
 /**********************************************************************/
 
 #pragma once
+#include <iostream>
 
 class Fixed
 {
 public:
     Fixed();
     Fixed(const Fixed &fixed);
+    Fixed(int const value);
+    Fixed(float const value);
     ~Fixed();
     Fixed &operator=(const Fixed &fixed);
-    int getRawBits(void) const;
-    void setRawBits(int const raw);
+    int toInt(void) const;
+    float toFloat(void) const;
 private:
     int _fixedPointValue;
     static const int _fractionalBits = 8;
+    void setRawBits(int const raw);
+    int getRawBits(void) const;
 };
+
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
