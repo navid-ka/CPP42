@@ -60,6 +60,10 @@ Fixed &Fixed::operator=(const Fixed &fixed) {
   return *this;
 }
 
+Fixed &Fixed::operator>(const Fixed &fixed) {
+  return this->_fixedPointValue > fixed.getRawBits() ? *this : fixed;
+}
+
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
   out << fixed.toFloat();
   return out;
