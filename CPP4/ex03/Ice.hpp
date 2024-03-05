@@ -9,3 +9,19 @@
 /**********************************************************************/
 
 #pragma once
+
+#include <iostream>
+#include "ICharacter.hpp"
+#include "AMateria.hpp"
+
+
+class Ice {
+public:
+    Ice();
+    Ice(const Ice &oldIce);
+    Ice &operator=(const Ice &rhs);
+    ~Ice();
+
+    AMateria* clone() const;
+	void use(ICharacter& target);
+};

@@ -10,6 +10,8 @@
 
 #include <iostream>
 #include <string>
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
 #include "Character.hpp"
 
 Character::Character(const std::string name) : name(_name) {}
@@ -25,4 +27,8 @@ Character::~Character() {}
 
 
 std::string const &Character::getName() const { return (_name); }
+
+Character::equip(AMateria* m) {}
+Character::unequip(int idx) {}
+Character::use(int idx, ICharacter& target) {}
 
