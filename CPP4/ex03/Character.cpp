@@ -14,7 +14,10 @@
 #include "ICharacter.hpp"
 #include "Character.hpp"
 
-Character::Character(const std::string name) : name(_name) {}
+
+Character::Character(const std::string name) : _name(name) {
+    _inventory[SLOTS] = {};
+}
 
 Character::Character(const Character &oldCharacter) { *this = &oldCharacter; }
 
@@ -26,7 +29,7 @@ Character& Character::operator=(const Character &rhs) {
 Character::~Character() {}
 
 
-std::string const &Character::getName() const { return (_name); }
+std::string const & Character::getName() const { return (_name); }
 
 Character::equip(AMateria* m) {}
 Character::unequip(int idx) {}

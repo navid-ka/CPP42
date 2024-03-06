@@ -8,20 +8,16 @@
 /*                              |___/                                 */
 /**********************************************************************/
 
-#include "Ice.hpp"
-#include "AMateria.hpp"
+#pragma once
 #include <iostream>
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 
-Ice::Ice() : AMateria("ice") { }
+MateriaSource::MateriaSource() { }
 
-Ice::Ice(const Ice __attribute__((unused))&oldIce) { }
+MateriaSource::MateriaSource(const MateriaSource &oldMateriaSource) { *this = &oldMateriaSource; }
 
-Ice::Ice &operator=(const Ice __attribute__((unused))&rhs) { return *this; }
-
-Ice::~Ice() { }
-
-AMateria* Ice::clone() const { return new Ice(); }
-
-void Ice::use(ICharacter& target) {
-    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+MateriaSource& MateriaSource::operator=(const MateriaSource __attribute__((unused))&rhs) {
+    return *this;
 }
+MateriaSource::~MateriaSource() { }

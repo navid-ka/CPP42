@@ -12,10 +12,12 @@
 #include "AMateria.hpp"
 #include <string>
 
+#define SLOTS 4
 
 class Character : public ICharacter {
 private:
     std::string _name;
+    std::string _inventory[SLOTS];
 public:
     Character(const std::string name);
     Character(const Character &oldCharacter);

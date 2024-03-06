@@ -16,6 +16,8 @@
 
 
 class Ice {
+private:
+    std::string _name;
 public:
     Ice();
     Ice(const Ice &oldIce);
