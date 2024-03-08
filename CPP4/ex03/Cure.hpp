@@ -15,10 +15,10 @@
 #include "AMateria.hpp"
 
 
-class Cure {
+class Cure : public AMateria {
 public:
     Cure();
-    Cure(const Ice &oldCure);
+    Cure(const Cure &oldCure);
     Cure &operator=(const Cure &rhs);
     ~Cure();
 

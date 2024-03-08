@@ -11,11 +11,19 @@
 #pragma once
 #include <iostream>
 #include "IMateriaSource.hpp"
+#define SLOTS 4
+
+class AMateria;
 
 class MateriaSource : public IMateriaSource {
+private: 
+    AMateria *_materia[SLOTS];
 public:
     MateriaSource();
     MateriaSource(const MateriaSource &oldMateriaSource);
     MateriaSource &operator=(const MateriaSource &rhs);
     ~MateriaSource();
+
+    void learnMateria(AMateria*);
+    AMateria* createMateria(std::string const & type);
 };

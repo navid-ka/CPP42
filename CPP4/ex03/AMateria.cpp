@@ -10,9 +10,9 @@
 
 #include "AMateria.hpp"
 
-AMateria::AMateria(std::string const & type) : _type(type) {
+AMateria::AMateria() : _type("Default") { }
 
-}
+AMateria::AMateria(std::string const & type) : _type(type) { }
 
 AMateria::AMateria(const AMateria &oldMateria) {
     *this = oldMateria;

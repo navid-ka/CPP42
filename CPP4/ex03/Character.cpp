@@ -16,14 +16,18 @@
 
 
 Character::Character(const std::string name) : _name(name) {
-    _inventory[SLOTS] = {};
+	for (int i = 0; i < SLOTS; i++) {
+		_inventory[i] = NULL;
+	}
 }
 
-Character::Character(const Character &oldCharacter) { *this = &oldCharacter; }
+Character::Character(const Character &oldCharacter) { 
+	*this = oldCharacter;
+}
 
 Character& Character::operator=(const Character &rhs) { 
-    _name = rhs.getName();
-    return *this;
+	this->_name = rhs.getName();
+	return *this;
 }
 
 Character::~Character() {}
@@ -31,7 +35,27 @@ Character::~Character() {}
 
 std::string const & Character::getName() const { return (_name); }
 
-Character::equip(AMateria* m) {}
-Character::unequip(int idx) {}
-Character::use(int idx, ICharacter& target) {}
+void Character::equip(AMateria* m) {
+	for (int i = 0; i < SLOTS; i++)
+	{
+		if (!this->_inventory[i]) {
+			this->_inventory[i] = m->clone();
+			std::cout << m->getType() << " equiped in " << this->_inventory[i] << " slot." << std::endl;
+		}
+		else 
+			std::cout << "Inventory full" << std::endl;
+	}
+}
+void Character::unequip(int idx) {
+	this->_inventory[idx] = NULL;
+}
+void Character::use(int idx, ICharacter& target) {
+	if (_inventory[idx])
+	{
+		if (idx >= 0 && idx < 4 && _inventory[idx])
+			_inventory[idx]->use(target);
+	}
+	else
+		std::cout << "there's no materia in slot " << idx << " to target " << target.getName() << " with!" << std::endl;
+}
 

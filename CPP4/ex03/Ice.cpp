@@ -16,7 +16,7 @@ Ice::Ice() : AMateria("ice") { }
 
 Ice::Ice(const Ice __attribute__((unused))&oldIce) { }
 
-Ice::Ice &operator=(const Ice __attribute__((unused))&rhs) { return *this; }
+Ice & Ice::operator=(const Ice __attribute__((unused))&rhs) { return *this; }
 
 Ice::~Ice() { }
 

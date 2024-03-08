@@ -16,7 +16,7 @@ Cure::Cure() : AMateria("cure") { }
 
 Cure::Cure(const Cure __attribute__((unused))&oldCure) : AMateria("cure") { }
 
-Cure::Cure &operator=(const Cure __attribute__((unused))&rhs) { return *this; }
+Cure & Cure::operator=(const Cure __attribute__((unused))&rhs) { return *this; }
 
 Cure::~Cure() { }
 

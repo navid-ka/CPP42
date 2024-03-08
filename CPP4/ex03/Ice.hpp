@@ -15,7 +15,7 @@
 #include "AMateria.hpp"
 
 
-class Ice {
+class Ice : public AMateria{
 private:
     std::string _name;
 public:
