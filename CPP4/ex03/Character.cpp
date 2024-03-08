@@ -19,6 +19,7 @@ Character::Character(const std::string name) : _name(name) {
 	for (int i = 0; i < SLOTS; i++) {
 		_inventory[i] = NULL;
 	}
+
 }
 
 Character::Character(const Character &oldCharacter) { 
@@ -30,21 +31,25 @@ Character& Character::operator=(const Character &rhs) {
 	return *this;
 }
 
-Character::~Character() {}
+Character::~Character() {
+	for (int i = 0; i < SLOTS; i++) {
+		delete _inventory[i];
+	}
+}
 
 
 std::string const & Character::getName() const { return (_name); }
 
 void Character::equip(AMateria* m) {
 	for (int i = 0; i < SLOTS; i++)
-	{
+	{	
 		if (!this->_inventory[i]) {
 			this->_inventory[i] = m->clone();
-			std::cout << m->getType() << " equiped in " << this->_inventory[i] << " slot." << std::endl;
+			std::cout << m->getType() << " equiped in " << i << " slot." << std::endl;
+			return ;
 		}
-		else 
-			std::cout << "Inventory full" << std::endl;
 	}
+	std::cout << "Inventory full" << std::endl;
 }
 void Character::unequip(int idx) {
 	this->_inventory[idx] = NULL;

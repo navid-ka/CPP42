@@ -23,17 +23,28 @@ MateriaSource::MateriaSource(const MateriaSource &oldMateriaSource) { *this = ol
 MateriaSource& MateriaSource::operator=(const MateriaSource __attribute__((unused))&rhs) {
     return *this;
 }
-MateriaSource::~MateriaSource() { }
+MateriaSource::~MateriaSource() { 
+    for (int i = 0; i < SLOTS; i++) {
+		delete _materia[i];
+	}
+}
 
 void MateriaSource::learnMateria(AMateria* m) { 
     for (int i = 0; i < SLOTS; i++)
     {
         if (!_materia[i])
-            this->_materia[i] = m->clone();
-
+        {
+            this->_materia[i] = m;
+            return ;
+        }   
     }
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type) { 
-    return type;
+    	for (int i = 0; i < 4; i++)
+	{
+		if(_materia[i]->getType() == type)
+			return (_materia[i]);
+	}
+	return (0);
 }

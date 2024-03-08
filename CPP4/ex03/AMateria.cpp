@@ -32,5 +32,5 @@ std::string const &AMateria::getType() const {
     return _type;
 }
 
-void AMateria::use(ICharacter __attribute__((unused))&target) { }
+void AMateria::use(ICharacter __attribute__((unused))&target) {  } //(void)target;
 
