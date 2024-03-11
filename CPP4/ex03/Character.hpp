@@ -21,6 +21,7 @@ private:
     AMateria * _inventory[SLOTS];
     AMateria * _garbage[10000000];
 public:
+    Character();
     Character(const std::string name);
     Character(const Character &oldCharacter);
     Character &operator=(const Character &rhs);
@@ -31,4 +32,5 @@ public:
     void equip(AMateria* m);
     void unequip(int idx);
     void use(int idx, ICharacter& target);
+    void printInventory(void);
 };

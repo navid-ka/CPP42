@@ -26,4 +26,5 @@ public:
 
     void learnMateria(AMateria*);
     AMateria* createMateria(std::string const & type);
+    void printMaterias(void);
 };

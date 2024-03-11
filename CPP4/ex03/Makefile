@@ -1,6 +1,6 @@
 MAKEFLAGS += --no-print-directory
 NAME = materia
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CFLAGS = -Wall -Werror -Wextra -std=c++98 # -g 
 OBJECTS = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 HEADERS = AMateria.hpp Ice.hpp Cure.hpp ICharacter.hpp IMateriaSource.hpp
 

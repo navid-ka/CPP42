@@ -14,6 +14,14 @@
 #include "ICharacter.hpp"
 #include "Character.hpp"
 
+Character::Character() : _name("No Named") {
+	for (int i = 0; i < SLOTS; i++) {
+		_inventory[i] = NULL;
+	}
+	for (int i = 0; i < COLLECTOR; i++) {
+		_garbage[i] = NULL;
+	}
+}
 
 Character::Character(const std::string name) : _name(name) {
 	for (int i = 0; i < SLOTS; i++) {
@@ -25,27 +33,64 @@ Character::Character(const std::string name) : _name(name) {
 }
 
 Character::Character(const Character &oldCharacter) { 
-	*this = oldCharacter;
+	_name = oldCharacter.getName();
+	for (int i = 0; i < SLOTS; i++) {
+		_inventory[i] = NULL;
+		if (oldCharacter._inventory[i] != NULL)
+			_inventory[i] = oldCharacter._inventory[i]->clone();
+	}
+	for (int i = 0; i < COLLECTOR; i++) {
+		_garbage[i] = NULL;
+		if (oldCharacter._garbage[i] != NULL)
+			_garbage[i] = oldCharacter._garbage[i]->clone();
+	}
 }
 
 Character& Character::operator=(const Character &rhs) { 
 	this->_name = rhs.getName();
+	for (int i = 0; i < SLOTS; i++) {
+		if (this->_inventory[i] != NULL) {
+			delete this->_inventory[i];
+		}
+		this->_inventory[i] = NULL;
+		if (rhs._inventory[i] != NULL) {
+			this->_inventory[i] = rhs._inventory[i]->clone();
+		}
+	}
+	for (int i = 0; i < COLLECTOR; i++) {
+		if (this->_garbage[i] != NULL) {
+			delete this->_garbage[i];
+		}
+		this->_garbage[i] = NULL;
+		if (rhs._garbage[i] != NULL) {
+			this->_garbage[i] = rhs._inventory[i]->clone();
+		}
+	}
 	return *this;
 }
 
 Character::~Character() {
 	for (int i = 0; i < SLOTS; i++) {
-		delete _inventory[i];
+		if (_inventory[i]) {
+			delete _inventory[i];
+			_inventory[i] = NULL;
+		}
 	}
 	for (int i = 0; i < COLLECTOR; i++) {
-		delete _garbage[i];
+		if (_garbage[i]) {
+			delete _garbage[i];
+			_garbage[i] = NULL;
+		}
 	}
 }
-
 
 std::string const & Character::getName() const { return (_name); }
 
 void Character::equip(AMateria* m) {
+	if (!m) { 
+		std::cerr << "Invalid materia.\n";
+		return ; 
+	}
 	for (int i = 0; i < SLOTS; i++)
 	{	
 		if (!this->_inventory[i]) {
@@ -57,13 +102,27 @@ void Character::equip(AMateria* m) {
 	std::cout << "Inventory full" << std::endl;
 }
 void Character::unequip(int idx) {
-	for (int i = 0; i < COLLECTOR; i++)
+	if (idx >= 0 && idx < 4)
 	{	
-		if (!this->_garbage[i]) {
-			this->_garbage[i] = this->_inventory[idx];
-			this->_inventory[idx] = NULL;
-			break ;
+		if (_inventory[idx])
+		{
+			for (int i = 0; i < 100; i++)
+			{
+				if (!_garbage[i])
+					_garbage[i] = _inventory[idx]->clone();
+			}
+			delete _inventory[idx];
+			_inventory[idx] = NULL;
+			std::cout << "materia in slot " << idx << " was unequipped." << std::endl;
 		}
+		else
+		{
+			std::cout << "slot " << idx << " is already empty!" << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << "unequip was not possible. wrong inventory slot provided." << std::endl;
 	}
 }
 void Character::use(int idx, ICharacter& target) {
@@ -76,3 +135,13 @@ void Character::use(int idx, ICharacter& target) {
 		std::cout << "there's no materia in slot " << idx << " to target " << target.getName() << " with!" << std::endl;
 }
 
+  void Character::printInventory(void)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (_inventory[i])
+			std::cout << "Inventory slot " << i << " is " << _inventory[i]->getType() << "." << std::endl;
+		else
+			std::cout << "Inventory slot " << i <<  " is empty." << std::endl;
+	}
+}
