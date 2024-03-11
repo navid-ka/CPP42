@@ -13,11 +13,13 @@
 #include <string>
 
 #define SLOTS 4
+#define COLLECTOR 10000000
 
 class Character : public ICharacter {
 private:
     std::string _name;
     AMateria * _inventory[SLOTS];
+    AMateria * _garbage[10000000];
 public:
     Character(const std::string name);
     Character(const Character &oldCharacter);

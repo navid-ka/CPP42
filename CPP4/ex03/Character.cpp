@@ -19,7 +19,9 @@ Character::Character(const std::string name) : _name(name) {
 	for (int i = 0; i < SLOTS; i++) {
 		_inventory[i] = NULL;
 	}
-
+	for (int i = 0; i < COLLECTOR; i++) {
+		_garbage[i] = NULL;
+	}
 }
 
 Character::Character(const Character &oldCharacter) { 
@@ -34,6 +36,9 @@ Character& Character::operator=(const Character &rhs) {
 Character::~Character() {
 	for (int i = 0; i < SLOTS; i++) {
 		delete _inventory[i];
+	}
+	for (int i = 0; i < COLLECTOR; i++) {
+		delete _garbage[i];
 	}
 }
 
@@ -52,7 +57,15 @@ void Character::equip(AMateria* m) {
 	std::cout << "Inventory full" << std::endl;
 }
 void Character::unequip(int idx) {
+	for (int i = 0; i < COLLECTOR; i++)
+	{	
+		if (!this->_garbage[i]) {
+			this->_garbage[i] = this->_inventory[idx];
+			break ;
+		}
+	}
 	this->_inventory[idx] = NULL;
+
 }
 void Character::use(int idx, ICharacter& target) {
 	if (_inventory[idx])
