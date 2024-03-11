@@ -61,11 +61,10 @@ void Character::unequip(int idx) {
 	{	
 		if (!this->_garbage[i]) {
 			this->_garbage[i] = this->_inventory[idx];
+			this->_inventory[idx] = NULL;
 			break ;
 		}
 	}
-	this->_inventory[idx] = NULL;
-
 }
 void Character::use(int idx, ICharacter& target) {
 	if (_inventory[idx])
