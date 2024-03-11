@@ -58,7 +58,7 @@ int main(void)
 	
 	for (int i = 0; i < 6; i++)
 		fiftyfifty[i]->makeSound();
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 6; i++)
 		delete fiftyfifty[i];
 
     std::cout << "--------------------- DEEP COPY TESTS" << std::endl;
