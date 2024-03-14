@@ -63,12 +63,17 @@ int main(void)
 
     std::cout << "--------------------- DEEP COPY TESTS" << std::endl;
 
-    Cat a;
-    Cat b;
-    a = b;
-    std::cout << a.getType() <<  std::endl;   
+    // Cat a;
+    // Cat b;
+    // a = b;
+    // std::cout << a.getType() <<  std::endl;   
 
 
+    Cat * cat = new Cat();
+    Cat * cat2 = new Cat(*cat);
+
+    delete cat2;
+    delete cat;
 
     return 0;
 }
