@@ -53,7 +53,7 @@ void MateriaSource::learnMateria(AMateria* m) {
     {
         if (!_materia[i])
         {
-            this->_materia[i] = m;
+            this->_materia[i] = m->clone();
             return ;
         }   
     }
